@@ -61,7 +61,7 @@ export default function SettingButtons() {
 	return (
 		<main>
 			<dialog className="modal" open={nameEdit}>
-				<div className="modal-box">
+				<div className="modal-box w-11/12 max-w-md">
 					<h3 className="font-bold text-lg">Edit username</h3>
 					<input
 						type="text"
@@ -70,7 +70,7 @@ export default function SettingButtons() {
 						onChange={(e) => setName(e.target.value)}
 						value={name}
 					/>
-					<div className="modal-action">
+					<div className="modal-action flex-wrap gap-2">
 						<button
 							className="btn btn-error text-white"
 							onClick={() => setNameEdit(false)}
@@ -89,26 +89,22 @@ export default function SettingButtons() {
 				</div>
 			</dialog>
 			<dialog className="modal" open={imageEdit}>
-				<div className="modal-box">
+				<div className="modal-box w-11/12 max-w-md">
 					<h3 className="font-bold text-lg">
 						Upload a new profile picture
 					</h3>
 					<input
 						type="file"
-						className="file-input w-full max-w-xs mt-2"
+						className="file-input w-full mt-2"
 						onChange={(e) =>
 							setFile(e.target?.files ? e.target.files[0] : null)
 						}
 						accept="image/png, image/jpeg, image/jpg"
 					/>
 					{file && (
-						<div
-							className={
-								"flex flex-col justify-center items-center space-y-3"
-							}
-						>
+						<div className="flex flex-col items-center space-y-3 mt-4">
 							<AvatarEditor
-								className="mt-3 rounded-full bg-white"
+								className="rounded-full bg-white max-w-full"
 								ref={editor}
 								image={file}
 								width={200}
@@ -123,17 +119,17 @@ export default function SettingButtons() {
 								min="1"
 								max="10"
 								value={zoom}
-								className="range range-primary"
+								className="range range-primary w-full"
 								onChange={(e) =>
 									setZoom(Number(e.target.value))
 								}
 							/>
-							<div className="flex flex-row space-x-3">
+							<div className="flex flex-col md:flex-row gap-3">
 								<button
 									className="btn btn-info text-white"
 									onClick={() => setRotate(rotate - 90)}
 								>
-									<FaArrowRotateLeft className="text-white w-5 h-5" />
+									<FaArrowRotateLeft className="w-5 h-5" />
 									Rotate left
 								</button>
 								<button
@@ -141,17 +137,17 @@ export default function SettingButtons() {
 									onClick={() => setRotate(rotate + 90)}
 								>
 									Rotate right
-									<FaArrowRotateRight className="text-white w-5 h-5" />
+									<FaArrowRotateRight className="w-5 h-5" />
 								</button>
 							</div>
 						</div>
 					)}
-					<div className="modal-action">
+					<div className="modal-action flex-wrap gap-2">
 						<button
 							className="btn btn-error text-white"
 							onClick={() => setImageEdit(false)}
 						>
-							<FaXmark className="text-white w-5 h-5" />
+							<FaXmark className="w-5 h-5" />
 							Cancel
 						</button>
 						<button
@@ -162,29 +158,29 @@ export default function SettingButtons() {
 							{uploading ? (
 								<span className="loading loading-spinner loading-sm" />
 							) : (
-								<FaSave className="text-white w-5 h-5" />
+								<FaSave className="w-5 h-5" />
 							)}
 							Save
 						</button>
 					</div>
 				</div>
 			</dialog>
-			<div className={"flex flex-row space-x-3"}>
-				<div
-					className="btn btn-info mt-3 text-white"
+			<div className="flex flex-col md:flex-row gap-3 w-full">
+				<button
+					className="btn btn-info text-white w-full md:w-auto"
 					onClick={() => setNameEdit(true)}
 				>
-					<MdDriveFileRenameOutline className="text-white w-5 h-5" />
+					<MdDriveFileRenameOutline className="w-5 h-5" />
 					Edit username
-				</div>
+				</button>
 				{process.env.NEXT_PUBLIC_ALLOW_AVATAR_UPLOAD && (
-					<div
-						className="btn btn-info mt-3 text-white"
+					<button
+						className="btn btn-info text-white w-full md:w-auto"
 						onClick={() => setImageEdit(true)}
 					>
-						<AiOutlinePicture className="text-white w-5 h-5" />
+						<AiOutlinePicture className="w-5 h-5" />
 						Change profile picture
-					</div>
+					</button>
 				)}
 			</div>
 		</main>

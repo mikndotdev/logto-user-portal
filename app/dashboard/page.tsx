@@ -1,6 +1,6 @@
 export const runtime = "edge";
 
-import { auth, signIn } from "@/auth";
+import { auth } from "@/auth";
 import { cookies } from "next/headers";
 import ReturnButton from "@/app/components/returnButton";
 import SettingsButtons from "@/app/components/SettingButtons";
@@ -17,17 +17,17 @@ export default async function Dashboard() {
 	}
 
 	return (
-		<main className="flex flex-col justify-center items-center">
-			<div className="flex justify-center items-center mt-5">
-				<h1 className="text-white font-bold text-4xl">
+		<main className="flex min-h-screen flex-col items-center p-4">
+			<div className="w-full max-w-4xl">
+				<h1 className="text-white font-bold text-3xl md:text-4xl text-center my-5">
 					Account Portal
 				</h1>
-			</div>
-			<div className="card bg-gray-600 flex mt-5 w-11/12 p-6 items-center justify-center">
-				<UserCard />
-				<div className={"flex flex-row space-x-2"}>
-					<SettingsButtons />
-					{callback && <ReturnButton />}
+				<div className="card bg-gray-600 w-full p-4 md:p-6">
+					<UserCard />
+					<div className="flex flex-col md:flex-row items-center gap-3 mt-4">
+						<SettingsButtons />
+						{callback && <ReturnButton />}
+					</div>
 				</div>
 			</div>
 		</main>

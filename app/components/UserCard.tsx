@@ -7,32 +7,30 @@ export default function UserCard() {
 
 	if (status === "loading") {
 		return (
-			<div className="card bg-gray-700 flex mt-5 w-1/2 p-11 flex flex-row justify-center">
+			<div className="card bg-gray-700 w-full p-6 flex justify-center">
 				<span className="loading loading-spinner loading-lg" />
 			</div>
 		);
 	}
 
 	return (
-		<div className="card bg-gray-700 flex mt-5 w-1/2 p-6">
-			<div className="flex flex-row">
+		<div className="card bg-gray-700 w-full p-4 md:p-6">
+			<div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4">
 				<img
-					className={"rounded-full w-20 h-20"}
+					className="rounded-full w-20 h-20"
 					src={session?.user?.image as string}
-					alt={"Avatar"}
+					alt="Avatar"
 				/>
-				<div className={"flex flex-col ml-5 justify-center"}>
-					<div
-						className={
-							"flex flex-row justify-center items-center space-x-2"
-						}
-					>
-						<p className="text-white text-3xl font-bold">
+				<div className="flex flex-col justify-center">
+					<div className="flex flex-col md:flex-row items-center gap-2">
+						<p className="text-white text-2xl md:text-3xl font-bold">
 							{session?.user?.name}
 						</p>
-						<p>UID {session?.user?.id}</p>
+						<p className="text-sm">UID {session?.user?.id}</p>
 					</div>
-					<p className="text-white text-lg">{session?.user?.email}</p>
+					<p className="text-white text-base md:text-lg mt-1">
+						{session?.user?.email}
+					</p>
 				</div>
 			</div>
 		</div>
