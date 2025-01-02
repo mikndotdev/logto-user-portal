@@ -42,6 +42,7 @@ export default function SettingButtons() {
 
 	const saveImage = async () => {
 		setUploading(true);
+		//@ts-ignore
 		const image = editor.current.getImageScaledToCanvas().toDataURL();
 		const res = await fetch("/api/userinfo/image", {
 			method: "POST",
@@ -97,6 +98,7 @@ export default function SettingButtons() {
 						type="file"
 						className="file-input w-full mt-2"
 						onChange={(e) =>
+							// @ts-ignore
 							setFile(e.target?.files ? e.target.files[0] : null)
 						}
 						accept="image/png, image/jpeg, image/jpg"
