@@ -6,7 +6,7 @@ import { IoMdExit } from "react-icons/io";
 export default function ReturnButton() {
 	return (
 		<div
-			className="btn btn-error mt-3 text-white"
+			className="btn btn-error text-white"
 			onClick={() => signOut({ redirectTo: "/return" })}
 		>
 			<IoMdExit className="text-white w-5 h-5" />
