@@ -9,7 +9,7 @@ export async function GET(request: Request) {
 	const callback = url.searchParams.get("url");
 
 	if (callback) {
-		cookieStore.set("callback", callback);
+		cookieStore.set("callback", callback, { maxAge: 15 * 60 });
 		return NextResponse.redirect(process.env.APP_URL as string);
 	}
 

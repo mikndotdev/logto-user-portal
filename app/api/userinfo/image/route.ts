@@ -18,6 +18,10 @@ export async function POST(request: NextRequest) {
 	const body = await request.json();
 	const { image } = body;
 
+	if (process.env.NEXT_PUBLIC_ALLOW_AVATAR_UPLOAD !== "true") {
+		return new Response("Avatar uploads are disabled", { status: 503 });
+	}
+
 	if (!session) {
 		return new Response("Unauthorized", { status: 401 });
 	}
