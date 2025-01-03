@@ -1,5 +1,5 @@
 ## Logto Self-service User Portal
-- This webapp allows users to change their username and password in a [Logto](https://logto.io) instance.
+- This webapp allows users to change their username and avatar in a [Logto](https://logto.io) instance.
 
 ### Screenshot
 ![Main Page](https://sukushocloud.mdusercontent.com/rms0e6ro8pps/09656d1c0ef8d7c427b6fc4e9c2ade15.png)
