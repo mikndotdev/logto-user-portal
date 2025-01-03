@@ -72,3 +72,7 @@ compatibility_date = "2024-11-11"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
 ```
+
+## Usage
+- Visiting the root of the application will automatically log the user in and redirect them to the dashboard.
+- If you want the user to be able to return to the previous page after changing their profile information, you can use the `/init` route, such as `/init?callback=(previous-app-url)`. This will set a callback cookie and redirect the user back to the previous page.
