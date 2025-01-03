@@ -72,6 +72,7 @@ compatibility_date = "2024-11-11"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
 ```
+- Set the Node.js version to above 20, as this is required for Next.js 15. The easiest way to do this is add a `.node-version` file with the content `20.0.0`.
 
 ## Usage
 - Visiting the root of the application will automatically log the user in and redirect them to the dashboard.
